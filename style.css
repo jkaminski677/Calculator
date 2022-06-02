@@ -53,7 +53,7 @@ body {
 input.results {
   /* to jest do zrobienia */
   text-overflow: ellipsis;
-  direction: rtl;
+  /* direction: rtl; */
   white-space: nowrap;
   overflow: hidden;
 }
@@ -94,7 +94,7 @@ input.results:focus {
   input.results {
     width: auto;
     height: 60px;
-    font-size: 20px;
+    font-size: 17px;
   }
   .button {
     width: 50px;
@@ -107,7 +107,7 @@ input.results:focus {
 @media screen and (max-width: 500px) {
   input.results {
     width: 50%;
-    font-size: 20px;
+    font-size: 14px;
   }
   .button {
     width: 30px;
