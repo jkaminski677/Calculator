@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="clalc_inside">
+        <input type="text" id="result" class="results" onkeypress="return onlyNum(event)">
+        <main>
+          <div class="first-row">
+            <input type="button" value="(" class="button button_withoutLeft" onClick="display('(')"></input>
+            <input type="button" value=")" class="button button_adons" onClick="display(')')"></input>
+            <input type="button" value="%" id="Operator" class="button button_adons" onClick="display('%')"></input>
+            <input type="button" value="AC" id="clear" class="button button_adons" onClick="removeNum()" ondblclick="clearScreen()"></input>
+          </div>
+          <div class="second-row">
+            <input type="button" value="7" class="button button_withoutLeft" onClick="display('7')"></input>
+            <input type="button" value="8" class="button button_adons" onClick="display('8')"></input>
+            <input type="button" value="9" class="button button_adons" onClick="display('9')"></input>
+            <input type="button" value="/" id="Operator" class="button operator button_adons" onClick="display('/')"></input>
+          </div>
+          <div class="third-row">
+            <input type="button" value="4" class="button button_withoutLeft" onClick="display('4')"></input>
+            <input type="button" value="5" class="button button_adons" onClick="display('5')"></input>
+            <input type="button" value="6" class="button button_adons" onClick="display('6')"></input>
+            <input type="button" value="*" id="Operator" class="button operator button_adons" onClick="display('*')"></input>
+          </div>
+          <div class="fourth-row">
+            <input type="button" value="1" class="button button_withoutLeft" onClick="display('1')"></input>
+            <input type="button" value="2" class="button button_adons" onClick="display('2')"></input>
+            <input type="button" value="3" class="button button_adons" onClick="display('3')"></input>
+            <input type="button" value="-" id="Operator" class="operator button button_adons" onClick="display('-')"></input>
+          </div>
+          <div class="fifth-row">
+            <input type="button" value="0" class="button" onClick="display('0')"></input>
+            <input type="button" value="." class="button button_withoutDown" onClick="display('.')"></input>
+            <input type="button" value="=" class="button button_withoutDown" onClick="solve()"></input>
+            <input type="button" value="+" id="Operator" class="operator button button_withoutDown" onClick="display('+')"></input>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
