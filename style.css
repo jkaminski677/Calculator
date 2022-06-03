@@ -98,18 +98,24 @@ input.results:focus {
 }
 
 .button {
+  font-size: 30px;
   width: 50px;
   height: 40px;
-  /* margin: 4px 8px; */
   margin: 15px 70px;
   border: 0;
-  /* border-radius: 10px; */
-  transition: 0.3s;
+  opacity: 0.8;
+  transition: 0.15s;
   background-color: transparent;
 }
 
 .button:hover {
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+.button:active {
   transform: scale(1.8);
+  color: white;
 }
 
 /* .button_adons {
@@ -154,7 +160,7 @@ input.results:focus {
 }
 
 .score:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .first_new_inp {
@@ -170,6 +176,7 @@ input.results:focus {
   height: 50%;
   text-align: right;
   text-overflow: ellipsis;
+  overflow: hidden;
   background-color: transparent;
 }
 
@@ -275,10 +282,10 @@ input.results:focus {
   .score {
     width: 80px;
     height: 70px;
-    border: solid 2px peru;
+    margin: 2px;
+    padding: 0 5px 0 0;
   }
   .history_inputs {
-    overflow: hidden;
     width: 95%;
     height: 45%;
   }

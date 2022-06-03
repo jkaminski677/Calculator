@@ -21,6 +21,28 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+function onlyNum(charac) {
+  var ASCIICode = charac.which ? charac.which : charac.keyCode;
+  if (
+    ASCIICode > 31 &&
+    (ASCIICode < 45 || ASCIICode > 57) &&
+    (ASCIICode < 40 || ASCIICode > 43)
+  )
+    return false;
+  return true;
+}
+
+// Funckje do pokazywania oraz ukrywania paska z działaniem matematycznycm
+function showResultAfterCount() {
+  document.getElementById("resultAfterCount").style.display = "block";
+}
+
+function hideResultAfterCount() {
+  document.getElementById("resultAfterCount").style.display = "none";
+}
+
+/////////////////////////////////////////
+
 function display(val) {
   if (i > 0 || j == 1) {
     clearScreen();
@@ -34,11 +56,7 @@ function display(val) {
 function solve() {
   let x = document.getElementById("result").value;
   let y = eval(x);
-
   i++;
-  mountClone++;
-  console.log(mountClone);
-
   if (i < 2) {
     console.log("joł");
     if (x === "") {
@@ -48,8 +66,7 @@ function solve() {
       changeView(x);
       createHistory(x, y);
       showHistory();
-      CreateNewHistory(mountClone);
-
+      CreateNewHistory();
       return y;
     }
   }
@@ -60,18 +77,17 @@ function changeView(x) {
   let elementAfter = document.getElementById("resultAfterCount");
   fontSize = element.style.fontSize;
   if ($(window).width() > 500 && $(window).width() < 800) {
-    element.style.fontSize = "20px";
+    element.style.fontSize = "25px";
+    elementAfter.style.fontSize = "21px";
+  } else if ($(window).width() < 650) {
+    element.style.fontSize = "22px";
     elementAfter.style.fontSize = "17px";
-  } else if ($(window).width() < 500) {
-    element.style.fontSize = "17px";
-    elementAfter.style.fontSize = "14px";
   } else {
     element.style.fontSize = "30px";
     elementAfter.style.fontSize = "25px";
   }
-  x += " = ";
-  document.getElementById("resultAfterCount").value = x;
-  document.getElementById("resultAfterCount").style.display = "block";
+  document.getElementById("resultAfterCount").value = x + " = ";
+  showResultAfterCount();
 }
 
 function removeNum() {
@@ -89,18 +105,7 @@ function clearScreen() {
   document.getElementById("resultAfterCount").value = "";
   let element = document.getElementById("result");
   element.style.fontSize = fontSize;
-  document.getElementById("resultAfterCount").style.display = "none";
-}
-
-function onlyNum(charac) {
-  var ASCIICode = charac.which ? charac.which : charac.keyCode;
-  if (
-    ASCIICode > 31 &&
-    (ASCIICode < 45 || ASCIICode > 57) &&
-    (ASCIICode < 40 || ASCIICode > 43)
-  )
-    return false;
-  return true;
+  hideResultAfterCount();
 }
 
 function showHistory() {
@@ -114,14 +119,16 @@ function createHistory(exercise, resul) {
 }
 
 function takeOldVal() {
+  showResultAfterCount();
+  window.document.getElementById("resultAfterCount").value = "";
+  window.document.getElementById("result").value = "";
   let rozw = document.getElementById("second_New_Inp").textContent;
   let dzial = document.getElementById("first_New_Inp").textContent;
-  console.log(rozw);
   window.document.getElementById("resultAfterCount").value = dzial;
   window.document.getElementById("result").value = rozw;
 }
 
-function CreateNewHistory(mountClone) {
+function CreateNewHistory() {
   document.getElementById("history_Clicked").style.display = "flex";
 
   const newDiv = document.getElementById("history_Clicked");
