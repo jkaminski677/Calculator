@@ -23,37 +23,46 @@
             <input type="text" placeholder="Start counting..." id="result" class="results" onkeypress="return onlyNum(event)">
           </div>
           <main>
-            <div class="first-row">
+            <div class="first-row rower">
               <input type="button" value="(" class="button button_withoutLeft" onClick="display('(')"></input>
               <input type="button" value=")" class="button button_adons" onClick="display(')')"></input>
               <input type="button" value="%" id="Operator" class="button button_adons" onClick="display('%')"></input>
               <input type="button" value="AC" id="clear" class="button button_adons" onClick="removeNum()" ondblclick="clearScreen()"></input>
             </div>
-            <div class="second-row">
+            <div class="second-row rower">
               <input type="button" value="7" class="button button_withoutLeft" onClick="display('7')"></input>
               <input type="button" value="8" class="button button_adons" onClick="display('8')"></input>
               <input type="button" value="9" class="button button_adons" onClick="display('9')"></input>
               <input type="button" value="/" id="Operator" class="button operator button_adons" onClick="display('/')"></input>
             </div>
-            <div class="third-row">
+            <div class="third-row rower">
               <input type="button" value="4" class="button button_withoutLeft" onClick="display('4')"></input>
               <input type="button" value="5" class="button button_adons" onClick="display('5')"></input>
               <input type="button" value="6" class="button button_adons" onClick="display('6')"></input>
               <input type="button" value="*" id="Operator" class="button operator button_adons" onClick="display('*')"></input>
             </div>
-            <div class="fourth-row">
+            <div class="fourth-row rower">
               <input type="button" value="1" class="button button_withoutLeft" onClick="display('1')"></input>
               <input type="button" value="2" class="button button_adons" onClick="display('2')"></input>
               <input type="button" value="3" class="button button_adons" onClick="display('3')"></input>
               <input type="button" value="-" id="Operator" class="operator button button_adons" onClick="display('-')"></input>
             </div>
-            <div class="fifth-row">
+            <div class="fifth-row rower">
               <input type="button" value="0" class="button" onClick="display('0')"></input>
               <input type="button" value="." class="button button_withoutDown" onClick="display('.')"></input>
               <input type="button" value="=" id="equalz" class="button button_withoutDown" onClick="solve()"></input>
               <input type="button" value="+" id="Operator" class="operator button button_withoutDown" onClick="display('+')"></input>
             </div>
           </main>
+        </div>
+        <div class="history" id="History">
+          <h3>History</h3>
+          <div class="history_inside" id="History_Inside">
+            <div class="score" id="history_Clicked" onclick="takeOldVal()">
+              <div class="first_new_inp history_inputs" id="first_New_Inp"></div>
+              <div class="second_new_inp history_inputs" id="second_New_Inp"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
