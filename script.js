@@ -32,7 +32,7 @@ function onlyNum(charac) {
   return true;
 }
 
-// Funckje do pokazywania oraz ukrywania paska z działaniem matematycznycm
+// Funckje do pokazywania oraz ukrywania paska z działaniem matematycznym
 function showResultAfterCount() {
   document.getElementById("resultAfterCount").style.display = "block";
 }
@@ -50,6 +50,8 @@ function display(val) {
   i = 0;
   j = 0;
   document.getElementById("result").value += val;
+  console.log(val);
+
   return val;
 }
 
@@ -57,16 +59,21 @@ function solve() {
   let x = document.getElementById("result").value;
   let y = eval(x);
   i++;
+  console.log(i);
   if (i < 2) {
-    console.log("joł");
+    console.log(x);
     if (x === "") {
-      return " ";
+      i = 0;
+      console.log("joł madafaka");
+      return "";
     } else {
+      console.log("jo jo");
+      mountClone++;
       document.getElementById("result").value = y;
       changeView(x);
       createHistory(x, y);
       showHistory();
-      CreateNewHistory();
+      CreateNewHistory(mountClone);
       return y;
     }
   }
@@ -91,6 +98,7 @@ function changeView(x) {
 }
 
 function removeNum() {
+  console.log(i);
   if (i > 0) {
     clearScreen();
   } else {
@@ -101,11 +109,15 @@ function removeNum() {
 }
 
 function clearScreen() {
-  document.getElementById("result").value = "";
-  document.getElementById("resultAfterCount").value = "";
-  let element = document.getElementById("result");
-  element.style.fontSize = fontSize;
-  hideResultAfterCount();
+  if (document.getElementById("result").value != "") {
+    document.getElementById("result").value = "";
+    document.getElementById("resultAfterCount").value = "";
+    let element = document.getElementById("result");
+    if (i > 0) {
+      element.style.fontSize = fontSize;
+    }
+    hideResultAfterCount();
+  }
 }
 
 function showHistory() {
@@ -128,12 +140,13 @@ function takeOldVal() {
   window.document.getElementById("result").value = rozw;
 }
 
-function CreateNewHistory() {
+function CreateNewHistory(mountClone) {
   document.getElementById("history_Clicked").style.display = "flex";
 
   const newDiv = document.getElementById("history_Clicked");
   const clone = newDiv.cloneNode(true);
-  // clone.id = "history_Clicked2";
+  // clone.id = "history_Clicked" + mountClone;
+  // console.log(clone.id);
   document.getElementById("History_Inside").insertBefore(clone, newDiv);
 
   document.getElementById("history_Clicked").style.display = "none";

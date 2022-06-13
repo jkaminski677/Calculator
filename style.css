@@ -41,6 +41,87 @@ header {
   font-size: 0.3em;
 }
 
+/* /////////////////////////////////////////////// */
+
+.settings {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+  /* border: solid 2px peru; */
+}
+
+.settings img::after {
+  /* float: left; */
+  /* right: 10%; */
+  /* content: "+"; */
+}
+
+.settings img {
+  height: 40px;
+  width: 40px;
+  transition: 0.4s;
+}
+
+.settings img:active {
+  transform: rotate(180deg) scale(1.2);
+  filter: brightness(0) invert(1);
+}
+
+/* .settings img:hover {
+  transform: rotate(90deg) scale(1.2);
+  filter: brightness(0) invert(1);
+} */
+
+li a {
+  text-decoration: none;
+  color: #2d2f31;
+}
+
+.slide {
+  /* clear: both; */
+  width: 100%;
+  height: 0px;
+  padding: 0px 0 0 0;
+  margin: 20px -20px 0 0;
+  z-index: 2;
+  overflow: hidden;
+  text-align: center;
+  transition: height 0.6s cubic-bezier(0, 1.01, 1, -0.54);
+  border: solid 2px peru;
+}
+
+.slide li {
+  padding: 20px;
+  list-style-type: none;
+  background-color: gray;
+  margin: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.slide li:hover {
+  transform: scale(1.05);
+}
+
+.slide a:hover {
+  color: white;
+}
+
+#touch {
+  position: absolute;
+  opacity: 0;
+  height: 0px;
+}
+
+#touch:checked + .slide {
+  height: 300px;
+}
+
+/* /////////////////////////////////////////////////////////// */
+
 .first_step {
   width: 100%;
   height: 100%;
@@ -83,6 +164,7 @@ header {
   font-size: 40px;
   padding: 0 5px;
   border: 0;
+  border: 1px solid peru;
 }
 
 input.results {
@@ -97,8 +179,12 @@ input.results:focus {
   outline: none;
 }
 
+main {
+  color: black;
+}
+
 .button {
-  font-size: 30px;
+  font-size: 25px;
   width: 50px;
   height: 40px;
   margin: 15px 70px;
@@ -202,9 +288,9 @@ input.results:focus {
     font-size: 25px;
   }
   .button {
+    font-size: 30px;
     width: 100px;
     height: 60px;
-    /* margin: 4px 8px; */
     margin: 5px 10px;
   }
   .history {
@@ -223,7 +309,6 @@ input.results:focus {
   .button {
     width: 100px;
     height: 60px;
-    /* margin: 4px 8px; */
     margin: 5px 10px;
   }
 }
@@ -250,7 +335,6 @@ input.results:focus {
   .button {
     width: 20%;
     height: 50px;
-    /* margin: 4px 8px; */
     margin: 1% 0;
   }
   .rower {
