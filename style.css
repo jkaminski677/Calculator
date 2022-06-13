@@ -50,7 +50,6 @@ header {
   cursor: pointer;
   display: flex;
   flex-direction: row-reverse;
-  /* border: solid 2px peru; */
 }
 
 .settings img::after {
@@ -90,7 +89,6 @@ li a {
   overflow: hidden;
   text-align: center;
   transition: height 0.6s cubic-bezier(0, 1.01, 1, -0.54);
-  border: solid 2px peru;
 }
 
 .slide li {
@@ -164,7 +162,6 @@ li a {
   font-size: 40px;
   padding: 0 5px;
   border: 0;
-  border: 1px solid peru;
 }
 
 input.results {
@@ -236,7 +233,8 @@ main {
   flex-direction: column;
   cursor: pointer;
   width: 75%;
-  height: 70px;
+  height: 90%;
+  max-height: 70px;
   padding: 2% 8% 0 4%;
   margin: 2% 0 2% 5%;
   border-radius: 4px;
@@ -314,6 +312,9 @@ main {
 }
 
 @media screen and (max-width: 650px) {
+  header {
+    font-size: 14px;
+  }
   .text_outputs {
     width: 65%;
   }
@@ -334,7 +335,7 @@ main {
   }
   .button {
     width: 20%;
-    height: 50px;
+    height: 90%;
     margin: 1% 0;
   }
   .rower {
@@ -347,12 +348,13 @@ main {
   }
   .history {
     width: 90%;
-    height: 100px;
+    height: auto;
   }
   .history_inside {
     display: flex;
     flex-direction: row;
     overflow: auto;
+    height: 60%;
   }
 
   .first_new_inp {
@@ -365,12 +367,55 @@ main {
 
   .score {
     width: 80px;
-    height: 70px;
+    height: auto;
     margin: 2px;
     padding: 0 5px 0 0;
   }
   .history_inputs {
     width: 95%;
     height: 45%;
+  }
+}
+
+@media (max-width: 270px) and (max-height: 475px) {
+  header {
+    font-size: 12px;
+  }
+  .clalc_inside {
+    margin-top: 50px;
+  }
+  .button {
+    font-size: 20px;
+  }
+  .history {
+    width: 90%;
+    height: auto;
+  }
+  .history h3 {
+    margin: 10px 0 0 0;
+    /* padding: 20px 0 0 0; */
+    font-size: 10px;
+  }
+  .history_inside {
+    padding: 0;
+    margin: 0;
+    height: 90%;
+  }
+  .score {
+    width: 80px;
+    height: 90%;
+    /* margin: 2px;
+    padding: 0 1px 0 0; */
+  }
+  .history_inputs {
+    width: 95%;
+  }
+
+  .first_new_inp {
+    font-size: 6px;
+  }
+
+  .second_new_inp {
+    font-size: 9px;
   }
 }
